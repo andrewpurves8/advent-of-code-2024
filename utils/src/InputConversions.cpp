@@ -13,6 +13,29 @@ StringGrid split_by_whitespace(const StringList &input) {
   return result;
 }
 
+StringGrid split_all_letters(const StringList &input) {
+  StringGrid result;
+  for (const auto &line : input) {
+    StringList letters;
+    std::transform(line.begin(), line.end(), std::back_inserter(letters),
+                   [](char c) { return std::string(1, c); });
+    result.push_back(letters);
+  }
+  return result;
+}
+
+StringList combine_letters(const StringGrid &input_lines) {
+  StringList result;
+  for (const auto &row : input_lines) {
+    std::string combined_row;
+    for (const auto &letter : row) {
+      combined_row += letter;
+    }
+    result.push_back(combined_row);
+  }
+  return result;
+}
+
 StringGrid transpose(const StringGrid &input) {
   StringGrid result;
   if (input.empty()) {
