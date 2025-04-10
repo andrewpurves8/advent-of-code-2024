@@ -8,6 +8,8 @@
 
 StringGrid split_by_whitespace(const StringList &input_lines);
 
+StringGrid split_by_char(const StringList &input_lines, char character);
+
 StringGrid split_all_letters(const StringList &input_lines);
 
 StringList combine_letters(const StringGrid &input_lines);
